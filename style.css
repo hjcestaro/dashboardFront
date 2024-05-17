@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --blue: #287bff;
+  --white: #fff;
+  --grey: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background-color: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+  display: flex;
+}
+
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover {
+  background: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navigation ul li:hover a {
+  color: var(--blue);
+}
+
+.navigation ul li a .icon {
+  display: block;
+  min-width: 60px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75em;
+}
+
+.navigation ul li a .title {
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation ul li.brand-name:hover {
+  background: none;
+}
+
+.navigation ul li.brand-name:hover a {
+  color: var(--white);
+}
+
+.navigation ul .user-id {
+  margin-top: 180px;
+}
+
+.navigation ul li a img {
+  width: 30px;
+  border-radius: 50%;
+}
+
+/* curva por fora */
+
+.navigation ul li:hover a::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li.brand-name:hover a::before,
+.navigation ul li.brand-name:hover a::after {
+  content: none;
+}
+
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.main .cards-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.main .cards {
+  box-shadow: 9px 8px 35px -5px rgba(102, 102, 102, 0.75);
+  border-radius: 10px;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.main .main-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.main .cards .cards-about {
+  display: flex;
+  align-items: center;
+}
+
+.main .cards .cards-about ion-icon {
+  font-size: 2.3rem;
+  color: var(--black2);
+  padding-left: 25px;
+}
+
+.main .cards .cards-about h2 {
+  font-size: 2.5rem;
+  color: var(--blue);
+}
+
+.main .cards .cards-about p {
+  font-size: 0.9rem;
+  color: var(--black2);
+}
+
+.main .orders {
+  width: 800px;
+  padding: 25px;
+  box-shadow: 9px 8px 35px -5px rgba(102, 102, 102, 0.75);
+  border-radius: 10px;
+}
+
+.main .orders .orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main .orders .orders-header h2 {
+  color: var(--blue);
+}
+
+.main .orders .orders-header a {
+  text-decoration: none;
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.main .orders table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.main .orders table thead td {
+  font-weight: 600;
+}
+
+.main .orders table tr:last-child {
+  border-bottom: none;
+}
+
+.main .orders table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main .orders table tr td {
+  padding: 10px;
+}
+
+.main .orders table tr td:last-child {
+  text-align: end;
+}
+
+.main .orders table tr td:nth-child(2) {
+  text-align: end;
+}
+
+.main .orders table tr td:nth-child(3) {
+  text-align: center;
+}
+
+.status.pendente {
+  padding: 2px 4px;
+  background-color: #f9ca3f;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.entregue {
+  padding: 2px 4px;
+  background-color: #8de02c;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.rota {
+  padding: 2px 4px;
+  background-color: #1795ce;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.devolucao {
+  padding: 2px 4px;
+  background-color: #f00;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.main .second-content {
+  display: flex;
+  margin-top: 45px;
+}
+
+.main .clientes {
+  padding: 25px;
+  width: 300px;
+  box-shadow: 9px 8px 35px -5px rgba(102, 102, 102, 0.75);
+  border-radius: 10px;
+  margin-left: 40px;
+  flex: 1;
+}
+
+.main .clientes .cliente-box {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.main .clientes .clientes-header {
+  margin-bottom: 20px;
+}
+
+.main .clientes .clientes-header h2 {
+  color: var(--blue);
+}
+
+.main .clientes .cliente-box img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.main .clientes .cliente-box p {
+  font-weight: 600;
+}
+
+.main .clientes .cliente-box span {
+  color: var(--black2);
+  font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+  .main .orders {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .main .second-content {
+    flex-direction: column;
+  }
+
+  .main .clientes {
+    margin-left: 0;
+    margin-top: 25px;
+    width: 100%;
+  }
+}
